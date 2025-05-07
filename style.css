@@ -1,0 +1,44 @@
+/* ==UserStyle==
+@name         YouTube Fullscreen Hover Controls Unified
+@namespace    youtube
+@version      2.0
+@description  Hide controls & title in fullscreen — show all on specific hover areas
+==/UserStyle== */
+
+
+/* Hide everything by default in fullscreen */
+  .html5-video-player.ytp-fullscreen .ytp-chrome-bottom,
+  .html5-video-player.ytp-fullscreen .ytp-chrome-controls,
+  .html5-video-player.ytp-fullscreen .ytp-title,
+  .html5-video-player.ytp-fullscreen .ytp-progress-bar-container,
+  .html5-video-player.ytp-fullscreen .ytp-watch-later-icon,
+  .html5-video-player.ytp-fullscreen .ytp-share-icon{
+    opacity: 0 !important;
+    transition: opacity 0.3s ease !important;
+    pointer-events: auto !important;
+  }
+
+
+  /* Show everything if any one of them is hovered */
+  .html5-video-player.ytp-fullscreen:hover:has(.ytp-chrome-bottom:hover),
+  .html5-video-player.ytp-fullscreen:hover:has(.ytp-chrome-controls:hover),
+  .html5-video-player.ytp-fullscreen:hover:has(.ytp-title:hover),
+  .html5-video-player.ytp-fullscreen:hover:has(.ytp-progress-bar-container:hover),
+  .html5-video-player.ytp-fullscreen:hover:has(.ytp-gradient-bottom:hover),
+  .html5-video-player.ytp-fullscreen:hover:has(.ytp-gradient-top:hover),
+  .html5-video-player.ytp-fullscreen:hover:has(.ytp-watch-later-icon:hover),
+  .html5-video-player.ytp-fullscreen:hover:has(.ytp-share-icon:hover){
+    --show-opacity: 1;
+  }
+
+  /* Apply that show-opacity to controls */
+  .html5-video-player.ytp-fullscreen .ytp-chrome-bottom,
+  .html5-video-player.ytp-fullscreen .ytp-chrome-controls,
+  .html5-video-player.ytp-fullscreen .ytp-title,
+  .html5-video-player.ytp-fullscreen .ytp-progress-bar-container,
+  .html5-video-player.ytp-fullscreen .ytp-gradient-bottom,
+  .html5-video-player.ytp-fullscreen .ytp-gradient-top,
+  .html5-video-player.ytp-fullscreen .ytp-watch-later-icon,
+  .html5-video-player.ytp-fullscreen .ytp-share-icon    {
+    opacity: var(--show-opacity, 0) !important;
+  }
